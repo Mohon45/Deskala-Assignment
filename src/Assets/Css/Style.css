@@ -1,0 +1,35 @@
+body {
+  background-color: #dbe0e0;
+}
+
+.card {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+/* home section design start  */
+.home-page {
+  width: 75%;
+  margin: auto;
+  margin-top: 7rem;
+}
+.home-page-body {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+}
+.link-style {
+  text-decoration: none;
+  color: black;
+}
+.link-style:hover {
+  color: black;
+}
+
+/* home section design end */
+
+/* sign Up section design start */
+.sign-in-box {
+  margin: 0 auto;
+  margin-top: 5rem;
+}
+/* sign Up section design end */
