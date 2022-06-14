@@ -1,7 +1,48 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Login = () => {
+  const [loginData, setLoginData] = useState({});
+  const [filterdata, setFilterData] = useState([]);
+
+  const navigate = useNavigate();
+
+  const handleOnBlur = (e) => {
+    const field = e.target.name;
+    const value = e.target.value;
+    const newLoginData = { ...loginData };
+    newLoginData[field] = value;
+    setLoginData(newLoginData);
+  };
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/candidates")
+      .then((res) => {
+        if (res.status === 200) {
+          setFilterData(res.data);
+        }
+      })
+      .catch((error) => {
+        toast.error(error.response);
+      });
+  }, []);
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const query = filterdata.find(
+      (item) =>
+        item.email === loginData.email || item.password === loginData.password
+    );
+    if (query) {
+      toast.success("Login Successfull!");
+      navigate("/candidates");
+    } else {
+      toast.error("Email or password not match");
+    }
+  };
+
   return (
     <div>
       <div
@@ -11,13 +52,18 @@ const Login = () => {
         <div className="card-body">
           <h2 className="text-center fw-bold">Login</h2>
           <div className="w-75 mx-auto mt-5">
-            <form>
+            <form onSubmit={handleLogin}>
               <div className="mb-3">
-                <label for="exampleInputEmail1" className="form-label fw-bold">
+                <label
+                  htmlFor="exampleInputEmail1"
+                  className="form-label fw-bold"
+                >
                   Email id
                 </label>
                 <input
                   type="email"
+                  name="email"
+                  onBlur={handleOnBlur}
                   placeholder="enter your email id"
                   className="form-control"
                   id="exampleInputEmail1"
@@ -30,13 +76,15 @@ const Login = () => {
 
               <div className="mb-3">
                 <label
-                  for="exampleInputPassword1"
+                  htmlFor="exampleInputPassword1"
                   className="form-label fw-bold"
                 >
                   Password
                 </label>
                 <input
                   type="password"
+                  name="password"
+                  onBlur={handleOnBlur}
                   placeholder="enter your password"
                   className="form-control"
                   id="exampleInputPassword1"

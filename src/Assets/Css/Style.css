@@ -5,6 +5,12 @@ body {
 .card {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
+.custom-select-style {
+  border: none !important;
+  width: 150px !important;
+  margin: auto;
+  background-color: transparent !important;
+}
 
 /* home section design start  */
 .home-page {
@@ -33,3 +39,9 @@ body {
   margin-top: 5rem;
 }
 /* sign Up section design end */
+
+/* candidate create section design start */
+.candidate-form-input {
+  width: 400px;
+}
+/* candidate create section design end */

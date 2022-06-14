@@ -17,7 +17,7 @@ const Home = () => {
           </Link>
 
           {/* Task 2 */}
-          <Link className="link-style" to="/">
+          <Link className="link-style" to="/candidates">
             <div className="card" style={{ width: "18rem", height: "18rem" }}>
               <div className="card-body">
                 <h1 className="text-center mt-5">Task-2</h1>
