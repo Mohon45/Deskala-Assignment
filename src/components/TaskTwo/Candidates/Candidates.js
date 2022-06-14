@@ -14,7 +14,7 @@ const Candidates = () => {
 
   useEffect(() => {
     axios
-      .get("https://shrouded-shelf-19560.herokuapp.com/candidates")
+      .get("http://localhost:5000/candidates")
       .then((res) => {
         if (res.status === 200) {
           setCandidates(res.data);
@@ -28,20 +28,17 @@ const Candidates = () => {
 
   const onDeleteHandler = (id) => {
     setSelectedId(id);
-    ConfirmationAlert(() => handleDelete());
+    ConfirmationAlert(() => handleDelete(id));
   };
 
-  const handleDelete = () => {
-    fetch(
-      `https://shrouded-shelf-19560.herokuapp.com/candidate/delete/${selectedId}`,
-      {
-        method: "DELETE",
-      }
-    ).then((res) => {
+  const handleDelete = (id) => {
+    fetch(`http://localhost:5000/candidate/delete/${id}`, {
+      method: "DELETE",
+    }).then((res) => {
       if (res.status === 200) {
         const updateCandidates = [...candidates];
 
-        setCandidates(updateCandidates.filter((x) => x._id !== selectedId));
+        setCandidates(updateCandidates.filter((x) => x._id !== id));
         toast.success("Candidate Delete successfully Done!");
       }
     });
