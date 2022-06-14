@@ -32,7 +32,7 @@ const SignUp = () => {
     } else {
       axios
         .post(
-          "https://shrouded-shelf-19560.herokuapp.com/candidates/create",
+          "https://radiant-scrubland-25257.herokuapp.com/candidates/create",
           signUpData,
           {
             headers: { "content-type": "application/json" },

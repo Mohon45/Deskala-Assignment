@@ -18,7 +18,7 @@ const Login = () => {
   };
   useEffect(() => {
     axios
-      .get("https://shrouded-shelf-19560.herokuapp.com/candidates")
+      .get("https://radiant-scrubland-25257.herokuapp.com/candidates")
       .then((res) => {
         if (res.status === 200) {
           setFilterData(res.data);

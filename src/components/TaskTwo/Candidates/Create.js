@@ -20,7 +20,7 @@ const Create = () => {
 
     axios
       .post(
-        "https://shrouded-shelf-19560.herokuapp.com/candidates/create",
+        "https://radiant-scrubland-25257.herokuapp.com/candidates/create",
         data,
         {
           headers: { "content-type": "application/json" },

@@ -10,7 +10,9 @@ const Edit = () => {
   let params = useParams();
   useEffect(() => {
     axios
-      .get(`https://shrouded-shelf-19560.herokuapp.com/candidates/${params.id}`)
+      .get(
+        `https://radiant-scrubland-25257.herokuapp.com/candidates/${params.id}`
+      )
       .then((res) => {
         if (res.status === 200) {
           setCandidate(res.data);
@@ -34,7 +36,7 @@ const Edit = () => {
     const updateCandidate = { name, address, birthDate, state, age, code };
 
     fetch(
-      `https://shrouded-shelf-19560.herokuapp.com/candidates/update/${params.id}`,
+      `https://radiant-scrubland-25257.herokuapp.com/candidates/update/${params.id}`,
       {
         method: "PUT",
         headers: {
