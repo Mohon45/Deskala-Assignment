@@ -14,7 +14,7 @@ const Candidates = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/candidates")
+      .get("https://shrouded-shelf-19560.herokuapp.com/candidates")
       .then((res) => {
         if (res.status === 200) {
           setCandidates(res.data);
@@ -32,9 +32,12 @@ const Candidates = () => {
   };
 
   const handleDelete = () => {
-    fetch(`http://localhost:5000/candidate/delete/${selectedId}`, {
-      method: "DELETE",
-    }).then((res) => {
+    fetch(
+      `https://shrouded-shelf-19560.herokuapp.com/candidate/delete/${selectedId}`,
+      {
+        method: "DELETE",
+      }
+    ).then((res) => {
       if (res.status === 200) {
         const updateCandidates = [...candidates];
 

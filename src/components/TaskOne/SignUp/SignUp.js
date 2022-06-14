@@ -31,9 +31,13 @@ const SignUp = () => {
       return;
     } else {
       axios
-        .post("http://localhost:5000/candidates/create", signUpData, {
-          headers: { "content-type": "application/json" },
-        })
+        .post(
+          "https://shrouded-shelf-19560.herokuapp.com/candidates/create",
+          signUpData,
+          {
+            headers: { "content-type": "application/json" },
+          }
+        )
         .then((res) => {
           if (res.status === 200) {
             toast.success("registration Successfull!");

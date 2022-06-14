@@ -19,9 +19,13 @@ const Create = () => {
     event.preventDefault();
 
     axios
-      .post("http://localhost:5000/candidates/create", data, {
-        headers: { "content-type": "application/json" },
-      })
+      .post(
+        "https://shrouded-shelf-19560.herokuapp.com/candidates/create",
+        data,
+        {
+          headers: { "content-type": "application/json" },
+        }
+      )
       .then((res) => {
         if (res.status === 200) {
           event.target.reset();

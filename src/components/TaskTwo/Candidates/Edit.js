@@ -10,7 +10,7 @@ const Edit = () => {
   let params = useParams();
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/candidates/${params.id}`)
+      .get(`https://shrouded-shelf-19560.herokuapp.com/candidates/${params.id}`)
       .then((res) => {
         if (res.status === 200) {
           setCandidate(res.data);
@@ -33,13 +33,16 @@ const Edit = () => {
 
     const updateCandidate = { name, address, birthDate, state, age, code };
 
-    fetch(`http://localhost:5000/candidates/update/${params.id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(updateCandidate),
-    })
+    fetch(
+      `https://shrouded-shelf-19560.herokuapp.com/candidates/update/${params.id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(updateCandidate),
+      }
+    )
       .then((res) => {
         toast.success("Candidated Updated!");
         navigate("/candidates");

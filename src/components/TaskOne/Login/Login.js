@@ -18,7 +18,7 @@ const Login = () => {
   };
   useEffect(() => {
     axios
-      .get("http://localhost:5000/candidates")
+      .get("https://shrouded-shelf-19560.herokuapp.com/candidates")
       .then((res) => {
         if (res.status === 200) {
           setFilterData(res.data);
